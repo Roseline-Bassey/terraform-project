@@ -1,3 +1,10 @@
 *.tfvars
-.terraform\providers
-.terraform.lock.hcl
+*.exe
+*.lock.hcl
+*.terraform
+*.pem
+*.tfplan
+*.tfstate
+*.tfstate.backup
+*.lock.info
+.terraform
