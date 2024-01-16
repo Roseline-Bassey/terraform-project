@@ -1,5 +1,5 @@
 module "vpc" {
-  source            = "./modules/vpc"
+  source            = "../modules/vpc"
   region            = var.region
   vpc_cidr          = var.vpc_cidr[var.environment]
   availability_zones = var.availability_zones[var.environment]
@@ -26,7 +26,7 @@ resource "aws_route_table_association" "route_subnet" {
 }
 
 module "ec2_instance" {
-  source            = "./modules/ec2_instance"
+  source            = "../modules/ec2-instances"
   region            = var.region
   ssh_key_name      = var.ssh_key_name
   private_key_path  = var.private_key_path

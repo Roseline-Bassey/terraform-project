@@ -8,7 +8,7 @@ variable "availability_zone" {}
  # SECURITY_GROUP
  
 resource "aws_security_group" "sg_instance" {
-  name = "nodejs_sg"
+  name = "server1_sg"
   vpc_id = aws_vpc.vpc1.id
 
   ingress {
@@ -40,7 +40,7 @@ resource "aws_security_group" "sg_instance" {
   }
 }
 
-resource "aws_instance" "ec2_instance" {
+resource "aws_instance" "ec2_instances" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t2.micro"
   subnet_id              = element(var.subnet_ids, 0)
@@ -57,5 +57,5 @@ resource "aws_instance" "ec2_instance" {
 }
 
 output "public_dns" {
-  value = aws_instance.ec2_instance.public_dns
+  value = aws_instance.ec2_instances.public_dns
 }
