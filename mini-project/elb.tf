@@ -2,8 +2,8 @@ resource "aws_lb" "loadbalancer" {
   name               = "elb-asg"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.ssh.id]
-  subnets            = [aws_subnet.subnet_1.id, aws_subnet.subnet_2.id,  aws_subnet.subnet_3.id]
+  security_groups    = [aws_security_group.ec2-instance.id]
+  subnets            = [aws_subnet.subnet_1.id, aws_subnet.subnet_2.id, aws_subnet.subnet_3.id]
   depends_on         = [aws_internet_gateway.main]
 }
 
